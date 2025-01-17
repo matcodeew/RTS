@@ -53,7 +53,10 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy Info")
     USkeletalMesh* SkeletalMesh;
 
-    FStruct_UnitStat() : Name("Null"), AttackDamage(0.0f), MaxLife(0.0f), CurrentLife(MaxLife), MovementSpeed(0.0f), SpawnRate(0.0f), RessourceValue(0.0f), SkeletalMesh(nullptr) {}
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy Info")
+    FVector SkeletalMeshScale;
+
+    FStruct_UnitStat() : Name("Null"), AttackDamage(0.0f), MaxLife(0.0f), CurrentLife(MaxLife), MovementSpeed(0.0f), SpawnRate(0.0f), RessourceValue(0.0f), SkeletalMesh(nullptr), SkeletalMeshScale(0.5f, 0.5f, 0.5f) {}
 };
 
 

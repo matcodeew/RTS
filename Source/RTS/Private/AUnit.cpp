@@ -2,6 +2,8 @@
 
 AAUnit::AAUnit()
 {
+	SkeletalMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SkeletalMeshComponent"));
+	RootComponent = SkeletalMeshComponent;
 }
 
 void AAUnit::ResetUnitData()
@@ -14,6 +16,7 @@ void AAUnit::ResetUnitData()
 	Stat.Name = "";
 	Stat.RessourceValue = 0;
 	Stat.SpawnRate = 0;
+	Stat.SkeletalMeshScale = FVector::ZeroVector;
 
 	Type = EEnum_UnitType::None;
 }
@@ -22,6 +25,12 @@ void AAUnit::InitializeUnitData(UDA_Unit* data)
 {
 	Stat = data->UnitStat;
 	Type = data->UnitType;
+	
+	if (SkeletalMeshComponent && Stat.SkeletalMesh)
+	{
+		SkeletalMeshComponent->SetSkeletalMesh(Stat.SkeletalMesh);
+		SkeletalMeshComponent->SetRelativeScale3D(Stat.SkeletalMeshScale);
+	}
 }
 
 void AAUnit::MoveTo(const FVector& destination)

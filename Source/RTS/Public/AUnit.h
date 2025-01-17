@@ -40,4 +40,7 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Unit Actions")
 	void Die();
+
+private:
+	USkeletalMeshComponent* SkeletalMeshComponent;
 };

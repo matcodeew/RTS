@@ -50,5 +50,6 @@ void UAC_EnemyPool::DesactivateUnit(AAUnit* unit, bool active)
 {
 	unit->SetActorEnableCollision(!active); 
 	unit->SetActorHiddenInGame(active); 
+
 	unit->SetActorTickEnabled(!active); 
 }
