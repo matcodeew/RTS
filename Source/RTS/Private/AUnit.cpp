@@ -9,7 +9,7 @@ void AAUnit::ResetUnitData()
 	Stat.AttackDamage = 0;
 	Stat.CurrentLife = 0;
 	Stat.MaxLife = 0;
-	Stat.Mesh = NULL;
+	Stat.SkeletalMesh = NULL;
 	Stat.MovementSpeed = 0;
 	Stat.Name = "";
 	Stat.RessourceValue = 0;
