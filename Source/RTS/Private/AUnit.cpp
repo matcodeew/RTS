@@ -47,11 +47,7 @@ void AAUnit::TakeDamage(float damage)
 	if (Stat.CurrentLife <= 0)
 	{
 		Die();
+		OnUnitDeath.Broadcast(this);
 		return;
 	}
-}
-
-void AAUnit::Die()
-{
-	OnUnitDeath.Broadcast(this);
 }

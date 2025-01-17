@@ -20,5 +20,5 @@ public:
 	UAC_EnemyPool* EnemyPool;
 
 	UFUNCTION(BlueprintCallable, Category = "Spawner")
-	void SpawnEnemy(EEnum_UnitType type);
+	AAUnit* SpawnEnemy(EEnum_UnitType type, FVector position);
 };

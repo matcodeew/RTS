@@ -12,6 +12,7 @@ void UAC_EnemyPool::InitializePool(int32 poolSize)
 		{
 			newUnit->OnUnitDeath.AddDynamic(this, &UAC_EnemyPool::ReturnEnemyToPool);
 			newUnit->ResetUnitData();
+			ResetEnemy(newUnit);
 			DesactivateUnit(newUnit, true);
 			Pool.Add(newUnit);
 		}
@@ -31,7 +32,6 @@ AAUnit* UAC_EnemyPool::GetEnemyFromPool(EEnum_UnitType type)
 		AAUnit* newUnit = Pool.Pop();
 		if (IsValid(newUnit) && newUnit->IsHidden())
 		{
-			ResetEnemy(newUnit);
 			DesactivateUnit(newUnit, false);
 			newUnit->InitializeUnitData(UnitTypeToDataMap[type]);
 			return newUnit;
@@ -48,7 +48,7 @@ void UAC_EnemyPool::ResetEnemy(AAUnit* enemy)
 
 void UAC_EnemyPool::DesactivateUnit(AAUnit* unit, bool active)
 {
-	unit->SetActorEnableCollision(active);
-	unit->SetActorHiddenInGame(active);
-	unit->SetActorTickEnabled(active);
+	unit->SetActorEnableCollision(!active); 
+	unit->SetActorHiddenInGame(active); 
+	unit->SetActorTickEnabled(!active); 
 }

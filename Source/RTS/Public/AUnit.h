@@ -38,6 +38,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Unit Actions")
 	void TakeDamage(float damage);
 
-	UFUNCTION(BlueprintCallable, Category = "Unit Actions")
+	UFUNCTION(BlueprintImplementableEvent, Category = "Unit Actions")
 	void Die();
 };

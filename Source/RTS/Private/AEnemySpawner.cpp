@@ -7,14 +7,16 @@ AAEnemySpawner::AAEnemySpawner()
 	EnemyPool = CreateDefaultSubobject<UAC_EnemyPool>(TEXT("EnemyPool"));
 }
 
-void AAEnemySpawner::SpawnEnemy(EEnum_UnitType unitType)
+AAUnit* AAEnemySpawner::SpawnEnemy(EEnum_UnitType unitType, FVector position)
 {
-	if (!IsValid(EnemyPool)) { return; }
-
+	if (!IsValid(EnemyPool)) { return nullptr; }
+		
 
 	AAUnit* newEnemy = EnemyPool->GetEnemyFromPool(unitType);
 	if (IsValid(newEnemy))
 	{
-		newEnemy->SetActorLocation(FVector(1000, 1000, 0));
+		newEnemy->SetActorLocation(position);
+		return newEnemy;
 	}
+	return nullptr;
 }
