@@ -3,6 +3,7 @@
 AAUnit::AAUnit()
 {
 	SkeletalMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SkeletalMeshComponent"));
+
 	RootComponent = SkeletalMeshComponent;
 }
 
@@ -33,9 +34,18 @@ void AAUnit::InitializeUnitData(UDA_Unit* data)
 	}
 }
 
-void AAUnit::MoveTo(const FVector& destination)
+void AAUnit::MoveTo(FVector targetLocation, float DeltaTime, float Speed)
 {
-	//faire déplacement.
+	FVector CurrentLocation = GetActorLocation();
+	FVector Direction = (targetLocation - CurrentLocation).GetSafeNormal();
+	FVector NewLocation = CurrentLocation + (Direction * Speed * DeltaTime);
+
+	if (FVector::Dist(NewLocation, targetLocation) <= 0.1f)
+	{
+		NewLocation = targetLocation;
+	}
+
+	SetActorLocation(NewLocation);
 }
 
 void AAUnit::Attack(AActor* target)

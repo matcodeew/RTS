@@ -30,7 +30,7 @@ public:
 	void InitializeUnitData(UDA_Unit* data);
 
 	UFUNCTION(BlueprintCallable, Category = "Unit Actions")
-	void MoveTo(const FVector& destination);
+	void MoveTo(FVector TargetLocation, float DeltaTime, float Speed);
 
 	UFUNCTION(BlueprintCallable, Category = "Unit Actions")
 	void Attack(AActor* target);
@@ -40,6 +40,7 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Unit Actions")
 	void Die();
+
 
 private:
 	USkeletalMeshComponent* SkeletalMeshComponent;

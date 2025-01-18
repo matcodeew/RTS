@@ -1,6 +1,5 @@
 #include "AEnemySpawner.h"
 
-// Sets default values
 AAEnemySpawner::AAEnemySpawner()
 {
 	PrimaryActorTick.bCanEverTick = false;
