@@ -40,7 +40,7 @@ void AAUnit::MoveTo(FVector targetLocation, float DeltaTime, float Speed)
 	FVector Direction = (targetLocation - CurrentLocation).GetSafeNormal();
 	FVector NewLocation = CurrentLocation + (Direction * Speed * DeltaTime);
 
-	if (FVector::Dist(NewLocation, targetLocation) <= 0.1f)
+	if (FVector::Dist(NewLocation, targetLocation) <= DistanceTreshHold)
 	{
 		NewLocation = targetLocation;
 	}

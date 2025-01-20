@@ -26,6 +26,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Unit Properties")
 	EEnum_UnitType Type;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Unit Properties")
+	float DistanceTreshHold;
+
 	void ResetUnitData();
 	void InitializeUnitData(UDA_Unit* data);
 
