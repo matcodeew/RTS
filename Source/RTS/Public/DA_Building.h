@@ -29,9 +29,9 @@ public:
 	int32 FaithValue;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Builing Value")
-	UStaticMesh* Mesh;
+	UStaticMesh* StaticMesh;
 
-	FStruct_BuildingStat() : BuildingName("Null"), FaithValue(0.0f), Mesh(NULL) {}
+	FStruct_BuildingStat() : BuildingName("NoName"), FaithValue(0.0f), StaticMesh(NULL) {}
 };
 
 UCLASS(BlueprintType)

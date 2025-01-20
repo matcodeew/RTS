@@ -27,9 +27,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Building Info")
 	TMap<EEnum_BuildingType, UDA_Building*> Building;
 
-	UFUNCTION(BlueprintCallable)
-	AActor* Build(EEnum_BuildingType type, FVector location);
 private:
+	UFUNCTION(BlueprintCallable)
 	void InitializeBuildingStat(UDA_Building* data);
 
 };
