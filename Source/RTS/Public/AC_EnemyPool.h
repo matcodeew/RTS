@@ -14,6 +14,8 @@ class RTS_API UAC_EnemyPool : public UActorComponent
 
 public:
 
+	UAC_EnemyPool();
+
 	UFUNCTION(BlueprintCallable, Category = "Enemy Pool")
 	void InitializePool(int32 poolSize);
 
@@ -39,5 +41,6 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pool Properties")
 	TMap<EEnum_UnitType, UDA_Unit*> UnitTypeToDataMap;
-
+private:
+	FActorSpawnParameters SpawnParams;
 };

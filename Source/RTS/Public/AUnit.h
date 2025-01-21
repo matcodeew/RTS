@@ -9,7 +9,7 @@
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnUnitDeath, AAUnit*, unit);
 
 UCLASS()
-class RTS_API AAUnit : public AActor
+class RTS_API AAUnit : public APawn
 {
 	GENERATED_BODY()
 	
@@ -36,7 +36,7 @@ public:
 	void MoveTo(FVector TargetLocation, float DeltaTime, float Speed);
 
 	UFUNCTION(BlueprintCallable, Category = "Unit Actions")
-	void Attack(AActor* target);
+	void Attack(AAUnit* target);
 
 	UFUNCTION(BlueprintCallable, Category = "Unit Actions")
 	void TakeDamage(float damage);

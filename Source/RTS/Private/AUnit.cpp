@@ -48,15 +48,11 @@ void AAUnit::MoveTo(FVector targetLocation, float DeltaTime, float Speed)
 	SetActorLocation(NewLocation);
 }
 
-void AAUnit::Attack(AActor* target)
+void AAUnit::Attack(AAUnit* target)
 {
 	if (IsValid(target))
 	{
-		AAUnit* enemy = Cast<AAUnit>(target);
-		if (IsValid(enemy))
-		{
-			enemy->TakeDamage(Stat.AttackDamage);
-		}
+		target->TakeDamage(Stat.AttackDamage);
 	}
 }
 
