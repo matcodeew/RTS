@@ -73,4 +73,7 @@ public:
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Unit Type")
     EEnum_UnitType UnitType;
+
+   // UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Unit Icon")
+    
 };

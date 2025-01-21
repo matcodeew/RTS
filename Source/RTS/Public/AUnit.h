@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include "GameFramework/Character.h"
 #include "DA_Unit.h"
 #include "AUnit.generated.h"
 
@@ -9,7 +9,7 @@
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnUnitDeath, AAUnit*, unit);
 
 UCLASS()
-class RTS_API AAUnit : public APawn
+class RTS_API AAUnit : public ACharacter
 {
 	GENERATED_BODY()
 	

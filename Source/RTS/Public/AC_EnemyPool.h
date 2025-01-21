@@ -41,6 +41,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pool Properties")
 	TMap<EEnum_UnitType, UDA_Unit*> UnitTypeToDataMap;
+
 private:
 	FActorSpawnParameters SpawnParams;
 };
