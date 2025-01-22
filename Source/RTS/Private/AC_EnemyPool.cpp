@@ -8,7 +8,11 @@ UAC_EnemyPool::UAC_EnemyPool()
 
 void UAC_EnemyPool::InitializePool(int32 poolSize)
 {
-	if (poolSize <= 0 && IsValid(UnitClass)) { return; }
+	if (poolSize <= 0 || !IsValid(UnitClass))
+	{
+		UE_LOG(LogTemp, Error, TEXT("PoolSize is negative or NULL"));
+		return; 
+	}
 
 
 	for (int i = 0; i < poolSize; i++)
