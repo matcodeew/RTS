@@ -3,24 +3,28 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "DA_Building.h"
+#include "ABuilding.h"
 
-#include "ABuilding.generated.h"
-
+#include "ABuildingManager.generated.h"
 
 UCLASS(BlueprintType)
-class RTS_API AABuilding : public AActor
+class RTS_API AABuildingManager : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
-	AABuilding();
+	AABuildingManager();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Building Info")
-	EEnum_BuildingType BuildingType;
+	TSubclassOf<AABuilding> BuildingClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Building Info")
-	FStruct_BuildingStat BuildingStat;
+	TMap<EEnum_BuildingType, UDA_Building*> Building;
+
+
+private:
 
 	UFUNCTION(BlueprintCallable)
-	void InitializeBuildingStat(UDA_Building* data);
+	AABuilding* Build(EEnum_BuildingType type, FVector location);
+
 };

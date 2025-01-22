@@ -31,7 +31,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Builing Value")
 	UStaticMesh* StaticMesh;
 
-	FStruct_BuildingStat() : BuildingName("NoName"), FaithValue(0.0f), StaticMesh(NULL) {}
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Builing Value")
+	FVector ScalingValue;
+
+	FStruct_BuildingStat() : BuildingName("NoName"), FaithValue(0.0f), StaticMesh(NULL), ScalingValue(1.0f, 1.0f, 1.0f) {}
 };
 
 UCLASS(BlueprintType)
