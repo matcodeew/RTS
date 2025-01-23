@@ -49,5 +49,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Unit Type")
 	EEnum_BuildingType BuildingType;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Building")
+	TSubclassOf<class AABuilding> BuildingClass;
 	
 };

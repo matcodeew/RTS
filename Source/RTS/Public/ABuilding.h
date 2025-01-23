@@ -23,4 +23,5 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void InitializeBuildingStat(UDA_Building* data);
+
 };
