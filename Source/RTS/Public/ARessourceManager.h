@@ -14,10 +14,10 @@ public:
 	AARessourceManager();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ressources")
-	int32 Faith;
+	float Faith;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ressources")
-	int32 Souls;
+	float Souls;
 
 	UFUNCTION(BlueprintCallable)
 	float AddFaith(float addedFaith);
