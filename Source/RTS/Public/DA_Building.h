@@ -44,10 +44,10 @@ class RTS_API UDA_Building : public UDataAsset
 
 public:
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Unit Stat")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Building Stat")
 	FStruct_BuildingStat BuildingStat;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Unit Type")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Building Type")
 	EEnum_BuildingType BuildingType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Building")

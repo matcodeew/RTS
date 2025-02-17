@@ -6,10 +6,11 @@
 #include "GameFramework/Actor.h"
 #include "AC_EnemyPool.h"
 #include "DA_Unit.h"
+#include "ABuilding.h"
 #include "AEnemySpawner.generated.h"
 
 UCLASS()
-class RTS_API AAEnemySpawner : public AActor
+class RTS_API AAEnemySpawner : public AABuilding
 {
 	GENERATED_BODY()
 	

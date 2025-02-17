@@ -11,9 +11,9 @@ float AARessourceManager::AddFaith(float addedFaith)
 	return Faith += addedFaith;
 }	
 
-void AARessourceManager::AddSoul(float addedSoul)
+float AARessourceManager::AddSoul(float addedSoul)
 {
-	Souls += addedSoul;
+	return Souls += addedSoul;
 }
 
 
@@ -26,7 +26,7 @@ void AARessourceManager::RemoveFaith(float removedFaith)
 		return;
 	}
 
-	Faith -= removedFaith;
+	Faith = std::fmaxf(Faith - removedFaith, 0.0f); 
 }
 
 void AARessourceManager::RemoveSoul(float removedSoul)
@@ -37,5 +37,5 @@ void AARessourceManager::RemoveSoul(float removedSoul)
 		return; 
 	}
 
-	Souls -= removedSoul;
+	Souls = std::fmaxf(Souls - removedSoul, 0.0f);
 }

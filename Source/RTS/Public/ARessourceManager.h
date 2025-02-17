@@ -23,7 +23,7 @@ public:
 	float AddFaith(float addedFaith);
 
 	UFUNCTION(BlueprintCallable)
-	void AddSoul(float addedSoul);
+	float AddSoul(float addedSoul);
 
 	UFUNCTION(BlueprintCallable)
 	void RemoveFaith(float removedFaith);
