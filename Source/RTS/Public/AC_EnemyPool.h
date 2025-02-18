@@ -17,16 +17,13 @@ public:
 	UAC_EnemyPool();
 
 	UFUNCTION(BlueprintCallable, Category = "Enemy Pool")
-	void InitializePool(int32 poolSize);
+	void InitializePool(int32 poolSize, FVector initPos);
 
 	UFUNCTION(BlueprintCallable, Category = "Enemy Pool")
 	void ReturnEnemyToPool(AAUnit* enemy);
 
 	UFUNCTION(BlueprintCallable, Category = "Enemy Pool")
 	AAUnit* GetEnemyFromPool(EEnum_UnitType type);
-
-	UFUNCTION(BlueprintCallable, Category = "Enemy Pool")
-	void ResetEnemy(AAUnit* enemy);
 
 	void DesactivateUnit(AAUnit* unit, bool active);
 

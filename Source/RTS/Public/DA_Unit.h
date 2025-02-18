@@ -13,7 +13,7 @@ enum class EEnum_UnitType : uint8
     B_FanaticDevotee UMETA(DisplayName = "Fanatic Devotee"),
     B_AbyssDogs UMETA(DisplayName = "Abyss Dogs"),
     B_ChainedBeasts UMETA(DisplayName = "Chained Beasts"),
-    B_ShootersFromTheAbyss UMETA(DisplayName = "Shooter From The Abyss"),
+    B_AbyssShooter UMETA(DisplayName = "Abyss Shooter"),
 
     //make elite name
 };
@@ -48,7 +48,9 @@ public:
     //float RessourceValue;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy Info")
+
     float RessourceValue;
+
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy Info")
     USkeletalMesh* SkeletalMesh;
@@ -74,6 +76,6 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Unit Type")
     EEnum_UnitType UnitType;
 
-   // UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Unit Icon")
-    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Unit Icon")
+    UTexture2D* UnitIcon;
 };

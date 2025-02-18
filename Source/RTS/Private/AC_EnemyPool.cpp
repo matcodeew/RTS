@@ -6,7 +6,7 @@ UAC_EnemyPool::UAC_EnemyPool()
 	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 }
 
-void UAC_EnemyPool::InitializePool(int32 poolSize)
+void UAC_EnemyPool::InitializePool(int32 poolSize, FVector initPos)
 {
 	if (poolSize <= 0 || !IsValid(UnitClass))
 	{
@@ -17,7 +17,7 @@ void UAC_EnemyPool::InitializePool(int32 poolSize)
 
 	for (int i = 0; i < poolSize; i++)
 	{
-		AAUnit* newUnit = GetWorld()->SpawnActor<AAUnit>(UnitClass, FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams);
+		AAUnit* newUnit = GetWorld()->SpawnActor<AAUnit>(UnitClass, initPos, FRotator::ZeroRotator, SpawnParams);
 		if (!IsValid(newUnit))
 		{
 			UE_LOG(LogTemp, Error, TEXT("Failed to spawn AAUnit!"));
@@ -26,7 +26,6 @@ void UAC_EnemyPool::InitializePool(int32 poolSize)
 
 		newUnit->OnUnitDeath.AddDynamic(this, &UAC_EnemyPool::ReturnEnemyToPool);
 		newUnit->ResetUnitData();
-		ResetEnemy(newUnit);
 		DesactivateUnit(newUnit, true);
 		Pool.Add(newUnit);
 	}
@@ -53,11 +52,6 @@ AAUnit* UAC_EnemyPool::GetEnemyFromPool(EEnum_UnitType type)
 	return nullptr;
 }
 
-void UAC_EnemyPool::ResetEnemy(AAUnit* enemy)
-{
-	enemy->SetActorLocation(FVector::ZeroVector);
-	enemy->SetActorRotation(FRotator::ZeroRotator);
-}
 
 void UAC_EnemyPool::DesactivateUnit(AAUnit* unit, bool active)
 {
